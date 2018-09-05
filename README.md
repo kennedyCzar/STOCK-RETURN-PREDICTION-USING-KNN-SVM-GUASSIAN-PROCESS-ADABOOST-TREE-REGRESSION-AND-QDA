@@ -1,7 +1,7 @@
 # STOCK-RETURN-PREDICTION-USING-KNN-SVM-GUASSIAN-PROCESS-ADABOOST-TREE-REGRESSION-AND-QDA [![HitCount](http://hits.dwyl.io/kennedyCzar/https://github.com/kennedyCzar/STOCK-RETURN-PREDICTION-USING-KNN-SVM-GUASSIAN-PROCESS-ADABOOST-TREE-REGRESSION-AND-QDA.svg)](http://hits.dwyl.io/kennedyCzar/https://github.com/kennedyCzar/STOCK-RETURN-PREDICTION-USING-KNN-SVM-GUASSIAN-PROCESS-ADABOOST-TREE-REGRESSION-AND-QDA)
 Forecast stock prices using machine learning approach. A time series analysis. Employ the Use of Predictive Modeling in Machine Learning to Forecast Stock Return. Approach Used by Hedge Funds to Select Tradeable Stocks
 
-(https://kennedyczar.github.io/ALGORITHM-TRADING-AND-STOCK-PREDICTION-USING-MACHINE-LEARNING/) ![](https://img.shields.io/badge/python-100%25-green.svg)
+![](https://img.shields.io/badge/python-100%25-green.svg)
 
 Objective:
 
