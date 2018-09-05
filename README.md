@@ -1,6 +1,7 @@
-# STOCK-RETURN-PREDICTION-USING-KNN-SVM-GUASSIAN-PROCESS-ADABOOST-TREE-REGRESSION-AND-QDA
+# STOCK-RETURN-PREDICTION-USING-KNN-SVM-GUASSIAN-PROCESS-ADABOOST-TREE-REGRESSION-AND-QDA [![HitCount](http://hits.dwyl.io/kennedyCzar/https://github.com/kennedyCzar/STOCK-RETURN-PREDICTION-USING-KNN-SVM-GUASSIAN-PROCESS-ADABOOST-TREE-REGRESSION-AND-QDA.svg)](http://hits.dwyl.io/kennedyCzar/https://github.com/kennedyCzar/STOCK-RETURN-PREDICTION-USING-KNN-SVM-GUASSIAN-PROCESS-ADABOOST-TREE-REGRESSION-AND-QDA)
 Forecast stock prices using machine learning approach. A time series analysis. Employ the Use of Predictive Modeling in Machine Learning to Forecast Stock Return. Approach Used by Hedge Funds to Select Tradeable Stocks
 
+(https://kennedyczar.github.io/ALGORITHM-TRADING-AND-STOCK-PREDICTION-USING-MACHINE-LEARNING/) ![](https://img.shields.io/badge/python-100%25-green.svg)
 
 Objective:
 
@@ -26,6 +27,7 @@ How to Use
           
 
 Output
+![Image of Regression](https://raw.githubusercontent.com/kennedyCzar/ALGORITHM-TRADING-AND-STOCK-PREDICTION-USING-MACHINE-LEARNING/master/Algorithm%20trading%20using%20machine%20learning/_REGRESSION%20IMAGES/Figure_1-9.png)
 --------------------------------------------------------
 Performing optimization...
 ----------------------------------------------------------
@@ -140,3 +142,6 @@ Test set accuracy score for best params: 0.7075928917609047
 --------------------------------------------------------------
 
 ## Classifier with best test set accuracy: grid_GaussianProcessClassifier
+
+
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/kennedyCzar/STOCK-RETURN-PREDICTION-USING-KNN-SVM-GUASSIAN-PROCESS-ADABOOST-TREE-REGRESSION-AND-QDA/issues)
