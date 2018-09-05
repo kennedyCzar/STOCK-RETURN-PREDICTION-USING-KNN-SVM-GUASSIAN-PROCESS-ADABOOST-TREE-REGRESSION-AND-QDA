@@ -6,7 +6,7 @@ Objective:
 
           Predict stock stock price using Technical Indicators as predictors.
           Use Supervised Machine Learning Approach to predict stock price both on train and test data.
-          Employ the use of pipeline to and GridSearch to select the model model
+          Employ the use of pipeline and GridSearch to select the model model
           Use Final Model to Predict Stock Returns.
           SHow plots of stock Return
           Write Deployable script.
