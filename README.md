@@ -143,5 +143,19 @@ Test set accuracy score for best params: 0.7075928917609047
 
 ## Classifier with best test set accuracy: grid_GaussianProcessClassifier
 
+# Conclusion
+
+```
+You must not that this strategy is trading is a low frequency approach and this 
+fits to make steady income over a period of time.
+For high Frequency Trading the result of the return is quite high.
+
+Also worthy of mention is the fact that, GaussianProcessClassifier 
+in most cases performed better for stocks prices with both unsteady and steady rise. 
+Followed Next to Logistic regression, then RandomForest.
+In any case, the performance of an algorithm depends on the structure of 
+the underlying prices. Its behaviour over a time series.
+For different stocks different agorithm perform best.
+```
 
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/kennedyCzar/STOCK-RETURN-PREDICTION-USING-KNN-SVM-GUASSIAN-PROCESS-ADABOOST-TREE-REGRESSION-AND-QDA/issues)
