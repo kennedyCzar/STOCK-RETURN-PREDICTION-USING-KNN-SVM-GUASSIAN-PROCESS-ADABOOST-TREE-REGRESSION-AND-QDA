@@ -139,4 +139,4 @@ Best training accuracy: 0.7191400832177531
 Test set accuracy score for best params: 0.7075928917609047
 --------------------------------------------------------------
 
-Classifier with best test set accuracy: grid_GaussianProcessClassifier
+## Classifier with best test set accuracy: grid_GaussianProcessClassifier
