@@ -12,7 +12,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 if __name__ == '__main__':
-    dataframe = FetchData("F", "yahoo", datetime(2000, 1, 1), datetime.now()).fetch()
+    dataframe = FetchData("AAPL", "yahoo", datetime(2000, 1, 1), datetime.now()).fetch()
     pred = Predictors(dataframe)
     Xf, Yf, X_train, X_test, Y_train, Y_test = NormalizeData(dataframe, 7, 15).normalizeData()
     split = int(0.7*len(dataframe))
