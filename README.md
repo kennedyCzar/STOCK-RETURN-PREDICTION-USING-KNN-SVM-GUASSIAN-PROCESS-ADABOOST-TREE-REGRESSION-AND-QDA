@@ -24,16 +24,16 @@ Note:
 
 Indicators/Predictors Used:
 
-                  Moving Averages(Also called Rolling mean)
-                  Commodity Channel Index
-                  Momentum
-                  Stochastic Oscillator(D and K)
-                  Force Index
-                  Mass Index
-                  
-                  # You can add ass many predictors are desired.
-                  # Most importantly if you have to do this, you may
-                  have to consider a feature selection using XGBoost.
+        Moving Averages(Also called Rolling mean)
+        Commodity Channel Index
+        Momentum
+        Stochastic Oscillator(D and K)
+        Force Index
+        Mass Index
+
+        # You can add ass many predictors are desired.
+        # Most importantly if you have to do this, you may
+        have to consider a feature selection using XGBoost.
                   
 How to Use
 
