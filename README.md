@@ -155,7 +155,7 @@ Test set accuracy score for best params: 0.7075928917609047
 # Conclusion
 
 ```
-You must not that this strategy is trading is a low frequency approach and this 
+You must note that this strategy is trading is a low frequency approach and this 
 fits to make steady income over a period of time.
 For high Frequency Trading the result of the return is quite high.
 
