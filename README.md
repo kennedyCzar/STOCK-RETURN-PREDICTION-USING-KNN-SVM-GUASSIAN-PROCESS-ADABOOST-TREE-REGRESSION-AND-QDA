@@ -7,11 +7,20 @@ Objective:
 
           Predict stock stock price using Technical Indicators as predictors.
           Use Supervised Machine Learning Approach to predict stock price both on train and test data.
-          Employ the use of pipeline and GridSearch to select the model model
+          Employ the use of pipeline and GridSearch to select the best model
           Use Final Model to Predict Stock Returns.
           SHow plots of stock Return
           Write Deployable script.
 
+
+Note:
+          
+          That Every stock has different behaviour and so at every point we may
+          have different best performing algorithm. For instance, after much 
+          testing Ranform Forest Algorithm perform better for predicting Apple 
+          Stocks than any other algo. Guassian process classifier performed 
+          better than every other algo at predicting IBM stocks etc.
+          
 How to Use
 
           >git clone https://github.com/kennedyCzar/STOCK-RETURN-PREDICTION-USING-KNN-SVM-GUASSIAN-PROCESS-ADABOOST-TREE-REGRESSION-AND-QDA
