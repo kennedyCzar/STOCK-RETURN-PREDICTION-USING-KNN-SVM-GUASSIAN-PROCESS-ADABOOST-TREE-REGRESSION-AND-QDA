@@ -20,7 +20,21 @@ Note:
           testing Ranform Forest Algorithm perform better for predicting Apple 
           Stocks than any other algo. Guassian process classifier performed 
           better than every other algo at predicting IBM stocks etc.
-          
+
+
+Indicators/Predictors Used:
+
+                  Moving Averages(Also called Rolling mean)
+                  Commodity Channel Index
+                  Momentum
+                  Stochastic Oscillator(D and K)
+                  Force Index
+                  Mass Index
+                  
+                  # You can add ass many predictors are desired.
+                  # Most importantly if you have to do this, you may
+                  have to consider a feature selection using XGBoost.
+                  
 How to Use
 
           >git clone https://github.com/kennedyCzar/STOCK-RETURN-PREDICTION-USING-KNN-SVM-GUASSIAN-PROCESS-ADABOOST-TREE-REGRESSION-AND-QDA
