@@ -176,9 +176,11 @@ You must note that this strategy is trading is a low frequency approach and this
 fits to make steady income over a period of time.
 For high Frequency Trading the result of the return is quite high.
 
-Also worthy of mention is the fact that, GaussianProcessClassifier 
+GOLD happens to give the most return on applied strategy(As shown in
+the graphs above).
+Also worthy of mention is the fact that, Random Forest Classifier + PCA 
 in most cases performed better for stocks prices with both unsteady and steady rise. 
-Followed Next to Logistic regression, then RandomForest.
+Followed Next to Adaboost, then Gradientbost Classifier.
 In any case, the performance of an algorithm depends on the structure of 
 the underlying prices. Its behaviour over a time series.
 For different stocks different agorithm perform best.
