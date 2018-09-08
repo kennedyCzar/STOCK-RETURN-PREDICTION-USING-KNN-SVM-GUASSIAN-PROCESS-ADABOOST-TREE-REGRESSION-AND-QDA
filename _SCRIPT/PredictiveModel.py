@@ -112,7 +112,7 @@ class Model():
                                                      'clf__min_samples_split': np.arange(2,10),
                                                      'clf__min_samples_leaf': np.arange(2,10),
                                                      'clf__max_features': self.MAX_FEATURES,
-                                                     'clf__n_estimators': np.arange(1,15)}]
+                                                     'clf__n_estimators': np.arange(1,2)}]
         self.pipe_DecisionTreeClassifier_param = [{'clf__max_depth': np.arange(2,10),
                                                     }]
         self.pipe_GaussianNB_params = [{'clf__priors': [None]}]
