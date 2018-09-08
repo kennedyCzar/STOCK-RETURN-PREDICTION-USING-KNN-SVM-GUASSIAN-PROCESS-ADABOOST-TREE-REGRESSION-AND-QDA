@@ -50,7 +50,10 @@ How to Use
           
 
 Output
-![Image of Regression](https://github.com/kennedyCzar/STOCK-RETURN-PREDICTION-USING-KNN-SVM-GUASSIAN-PROCESS-ADABOOST-TREE-REGRESSION-AND-QDA/blob/master/_IMAGES/Figure_GOLD.png)
+![Image of Regression](https://github.com/kennedyCzar/STOCK-RETURN-PREDICTION-USING-KNN-SVM-GUASSIAN-PROCESS-ADABOOST-TREE-REGRESSION-AND-QDA/blob/master/_IMAGES/StockGOLD_2018.png)
+![Image of Regression](https://github.com/kennedyCzar/STOCK-RETURN-PREDICTION-USING-KNN-SVM-GUASSIAN-PROCESS-ADABOOST-TREE-REGRESSION-AND-QDA/blob/master/_IMAGES/StockGM_2018.png)
+![Image of Regression](https://github.com/kennedyCzar/STOCK-RETURN-PREDICTION-USING-KNN-SVM-GUASSIAN-PROCESS-ADABOOST-TREE-REGRESSION-AND-QDA/blob/master/_IMAGES/StockAAPL_2018.png)
+![Image of Regression](https://github.com/kennedyCzar/STOCK-RETURN-PREDICTION-USING-KNN-SVM-GUASSIAN-PROCESS-ADABOOST-TREE-REGRESSION-AND-QDA/blob/master/_IMAGES/StockTSLA_2018.png)
 --------------------------------------------------------
 Performing optimization...
 ----------------------------------------------------------
