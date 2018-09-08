@@ -20,7 +20,7 @@ from sklearn.svm import SVC
 from sklearn.decomposition import PCA
 from sklearn.gaussian_process import GaussianProcessClassifier
 from sklearn.gaussian_process.kernels import RBF
-from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
+from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier, GradientBoostingClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
 from sklearn.linear_model import LogisticRegression
@@ -33,7 +33,7 @@ from sklearn.feature_selection import SelectKBest
 from sklearn.feature_selection import f_regression
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.model_selection import cross_validate
-
+from xgboost.sklearn import XGBClassifier
 
 class Model():
     
@@ -57,6 +57,7 @@ class Model():
         self.BEST_ACCURACY = 0.0
         self.BEST_CLASSIFIER = 0
         self.BEST_GRIDSEARCH = ''
+        self.RANGE = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         
         self.pipe_KNN = Pipeline([('normalizer', StandardScaler()), ('clf', KNeighborsClassifier())])
         self.pipe_KNN_PCA = Pipeline([('normalizer', StandardScaler()), ('PCA', PCA(n_components = self.N_COMPONENTS)),
@@ -86,26 +87,34 @@ class Model():
                                      ('clf', GaussianNB())])
         self.pipe_QuadraticDiscriminantAnalysis = Pipeline([('normalizer', StandardScaler()), 
                                                     ('clf', QuadraticDiscriminantAnalysis())])
+        self.pipe_GradientBoostingClassifier = Pipeline([('normalizer', StandardScaler()), 
+                                                    ('clf', GradientBoostingClassifier())])
+        self.pipe_XGBClassifier = Pipeline([('normalizer', StandardScaler()), 
+                                            ('clf', XGBClassifier())])
         self.pipe_QuadraticDiscriminantAnalysis_PCA = Pipeline([('normalizer', StandardScaler()), 
                                                     ('PCA', PCA(n_components = self.N_COMPONENTS)), ('clf', QuadraticDiscriminantAnalysis())])
         
-        self.pipe_KNN_param = [{'clf__n_neighbors': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}]
+        self.pipe_KNN_param = [{'clf__n_neighbors': self.RANGE}]
         
         self.pipe_SVC_params = [{'clf__kernel': self.KERNELS,
-                                'clf__C': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                                'clf__C': self.RANGE,
                                 'clf__gamma': self.GAMMA}]
         
-        self.pipe_AdaBoostClassifier_param = [{'clf__n_estimators': np.arange(1,50)}]
+        self.pipe_AdaBoostClassifier_param = [{'clf__n_estimators': [200],
+                                               'clf__learning_rate': [0.01]}]
         
-        
+        self.pipe_GradientBoostingClassifier_params = [{'clf__n_estimators': [200],
+                                                        'clf__learning_rate': [0.01]}]
+        self.XGBClassifier_params = [{'clf__n_estimators': [200],
+                                      'clf__learning_rate': [0.01]}]
         self.pipe_RandomForestClassifier_params = [{'clf__criterion': self.CRITERION,
                                                      'clf__max_depth': np.arange(2,10),
                                                      'clf__min_samples_split': np.arange(2,10),
-                                                     'clf__min_samples_leaf': np.arange(2,10)}]
-    
+                                                     'clf__min_samples_leaf': np.arange(2,10),
+                                                     'clf__max_features': self.MAX_FEATURES,
+                                                     'clf__n_estimators': np.arange(1,15)}]
         self.pipe_DecisionTreeClassifier_param = [{'clf__max_depth': np.arange(2,10),
                                                     }]
-        
         self.pipe_GaussianNB_params = [{'clf__priors': [None]}]
         
         self.pipe_GaussianProcessClassifier_params = [{'clf__kernel': [1**2 * RBF(1.0)]}]
@@ -128,7 +137,12 @@ class Model():
         self.grid_RandomForestClassifier = GridSearchCV(estimator = self.pipe_RandomForestClassifier, 
                                                         param_grid = self.pipe_RandomForestClassifier_params,
                                                         scoring='accuracy',	cv = self.N_VALIDATION)
-        
+        self.grid_GradientBoostingClassifier = GridSearchCV(estimator = self.pipe_GradientBoostingClassifier, 
+                                                        param_grid = self.pipe_GradientBoostingClassifier_params,
+                                                        scoring='accuracy',	cv = self.N_VALIDATION)
+        self.grid_XGBClassifier = GridSearchCV(estimator = self.pipe_XGBClassifier, 
+                                                        param_grid = self.XGBClassifier_params,
+                                                        scoring='accuracy',	cv = self.N_VALIDATION)
         self.grid_RandomForestClassifier_PCA = GridSearchCV(estimator = self.pipe_RandomForestClassifier_PCA, 
                                                             param_grid = self.pipe_RandomForestClassifier_params,
                                                             scoring='accuracy',	cv = self.N_VALIDATION)
@@ -177,7 +191,6 @@ class Model():
                                                     param_grid = self.pipe_AdaBoostClassifier_param,
                                                     scoring='accuracy',	cv = self.N_VALIDATION)
         
-        
         self.grid_GaussianNB = GridSearchCV(estimator = self.pipe_GaussianNB, param_grid = self.pipe_GaussianNB_params,
                                             scoring='accuracy',	cv = self.N_VALIDATION)
         
@@ -192,9 +205,9 @@ class Model():
                                                                param_grid = self.QuadraticDiscriminantAnalysis_params,
                                                                scoring='accuracy',	cv = self.N_VALIDATION)
         
-        
-        
         self.All_grids = {'grid_RandomForestClassifier': self.grid_RandomForestClassifier,
+                          'grid_GradientBoostingClassifier': self.grid_GradientBoostingClassifier,
+                          'grid_XGBClassifier': self.grid_XGBClassifier,
                           'grid_RandomForestClassifier_PCA': self.grid_RandomForestClassifier_PCA,
                           'grid_KNN': self.grid_KNN, 'grid_KNN_PCA_': self.grid_KNN_PCA,
                           'grid_SVC': self.grid_SVC, 'grid_SVC_PCA': self.grid_SVC_PCA,
@@ -213,7 +226,6 @@ class Model():
         
         print('--------------------------------------------------------')
         print('\tPerforming optimization...')
-        
         for classifier_grid_name, classifier_grid in self.All_grids.items():
             print('--------------------------------------------------------')
             print('Classifier: {}'.format(classifier_grid_name))	
