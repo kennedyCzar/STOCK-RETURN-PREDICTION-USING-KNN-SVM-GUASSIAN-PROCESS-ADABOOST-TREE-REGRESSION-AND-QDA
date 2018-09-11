@@ -11,7 +11,7 @@ import pandas_datareader.data as web
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
 from TechnicalIndicators import TechnicalIndicators
-
+from datetime import datetime
 
 
 
@@ -54,7 +54,7 @@ class FetchData(object):
             dataframe = web.DataReader(self.data, self.source, self.start, self.end)
         return dataframe
        
-#dataframe = FetchData("TSLA", "yahoo", datetime(2000, 1, 1), datetime.now()).fetch()
+dataframe = FetchData("TSLA", "yahoo", datetime(2000, 1, 1), datetime.now()).fetch()
 
 class Predictors:
     def __init__(self, data):
@@ -84,7 +84,7 @@ class Predictors:
         return self.dataframe.fillna(0, inplace=True)
         
         
-#pred = Predictors()  
+#pred = Predictors(dataframe)  
 
 class NormalizeData(object):
     def __init__(self,data, short_price, long_price):
@@ -101,6 +101,7 @@ class NormalizeData(object):
         
     def normalizeData(self):
         Xf = pd.DataFrame(MinMaxScaler().fit_transform(self.data.drop(['Close'], axis = 1).values))
+        Xf.columns = dataframe.columns.drop(['Close'])
         if not self.long_price > self.short_price:
             raise ValueError('Short price should be less than long')
         elif self.short_price == self.long_price:
@@ -111,10 +112,28 @@ class NormalizeData(object):
                 When short_price is greater than Long_price--> Buy
                 When short_price is less than long_price --> Sell
             '''
-            Yf = np.where(self.data['Close'].rolling(window = self.short_price).mean() > self.data['Close'].rolling(window = self.long_price).mean(),1,0)
+#            Yf = np.where(self.data['Close'].rolling(window = self.short_price).mean() > self.data['Close'].rolling(window = self.long_price).mean(),1,0)
+            Yf = np.where(self.data['Close'].shift(-1) > self.data['Close'],1,0)
         #Train/Test Split
         X_train, X_test, Y_train, Y_test = train_test_split(Xf, Yf, test_size = 0.3, random_state = False)
         return Xf, Yf, X_train, X_test, Y_train, Y_test
         
 
+
+class feature_importance(object):
+    def __init__(self, Xf, Yf):
+        import matplotlib.pyplot as plt
+        import seaborn as sns
+        from sklearn.ensemble import RandomForestClassifier
+        self.model = RandomForestClassifier(n_estimators=250, max_depth=25)
+        self.model.fit(Xf, Yf)
+        importance = pd.DataFrame({'features': Xf.columns,
+                        'importances': self.model.feature_importances_})
+        importance = importance.sort_values('importances', ascending=False)
+        plt.figure(figsize = (16,12))
+        sns.barplot(importance.importances, importance.features)
+        plt.title('Feature Importance Plot')
+        plt.show()
+        
+#feature_importance(dataframe, Yf)
 #Xf, Yf, X_train, X_test, Y_train, Y_test = NormalizeData(7, 15).normalizeData()
