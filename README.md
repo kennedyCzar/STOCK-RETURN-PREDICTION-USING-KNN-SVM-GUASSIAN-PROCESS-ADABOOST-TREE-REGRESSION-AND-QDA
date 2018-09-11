@@ -50,9 +50,16 @@ How to Use
           
 
 Output
+
+plot of Feature Importance
+![Image of FeatureImportance](https://github.com/kennedyCzar/STOCK-RETURN-PREDICTION-USING-KNN-SVM-GUASSIAN-PROCESS-ADABOOST-TREE-REGRESSION-AND-QDA/blob/master/_IMAGES/Feature_Importance.png)
+Gold Stock Retuns
 ![Image of Regression](https://github.com/kennedyCzar/STOCK-RETURN-PREDICTION-USING-KNN-SVM-GUASSIAN-PROCESS-ADABOOST-TREE-REGRESSION-AND-QDA/blob/master/_IMAGES/StockGOLD_2018.png)
+General Motors stock returns
 ![Image of Regression](https://github.com/kennedyCzar/STOCK-RETURN-PREDICTION-USING-KNN-SVM-GUASSIAN-PROCESS-ADABOOST-TREE-REGRESSION-AND-QDA/blob/master/_IMAGES/StockGM_2018.png)
+Apple stock returns
 ![Image of Regression](https://github.com/kennedyCzar/STOCK-RETURN-PREDICTION-USING-KNN-SVM-GUASSIAN-PROCESS-ADABOOST-TREE-REGRESSION-AND-QDA/blob/master/_IMAGES/StockAAPL_2018.png)
+Tesla Stock Returns
 ![Image of Regression](https://github.com/kennedyCzar/STOCK-RETURN-PREDICTION-USING-KNN-SVM-GUASSIAN-PROCESS-ADABOOST-TREE-REGRESSION-AND-QDA/blob/master/_IMAGES/StockTSLA_2018.png)
 --------------------------------------------------------
 Performing optimization...
