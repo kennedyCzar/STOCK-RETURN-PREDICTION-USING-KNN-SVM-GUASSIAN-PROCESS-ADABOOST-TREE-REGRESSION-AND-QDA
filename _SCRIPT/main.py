@@ -7,7 +7,7 @@ Created on Tue Sep  4 22:58:31 2018
 
 from datetime import datetime
 from PredictiveModel import Model
-from DataCollector import FetchData, NormalizeData, Predictors
+from DataCollector import FetchData, NormalizeData, Predictors, feature_importance
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -17,6 +17,7 @@ if __name__ == '__main__':
         dataframe = FetchData(ii, "yahoo", datetime(2000, 1, 1), datetime.now()).fetch()
         pred = Predictors(dataframe)
         Xf, Yf, X_train, X_test, Y_train, Y_test = NormalizeData(dataframe, 7, 15).normalizeData()
+        feature_importance(Xf, Yf)
         split = int(0.7*len(dataframe))
         GSCV = Model().optimize(X_train, X_test, Y_train, Y_test)
         dataframe['Predicted_Signal'] = GSCV.predict(Xf)
