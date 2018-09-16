@@ -7,7 +7,8 @@ Created on Tue Sep  4 22:58:31 2018
 
 from datetime import datetime
 from PredictiveModel import Model
-from DataCollector import FetchData, NormalizeData, Predictors, feature_importance
+from DataCollector import FetchData, NormalizeData
+from DataCollector import Predictors, feature_importance
 import numpy as np
 import matplotlib.pyplot as plt
 
