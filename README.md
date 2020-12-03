@@ -5,11 +5,11 @@ Forecast stock prices using machine learning approach. A time series analysis. E
 
 Objective:
 
-          Predict stock stock price using Technical Indicators as predictors.
-          Use Supervised Machine Learning Approach to predict stock price both on train and test data.
+          Predict stock stock price using Technical Indicators as predictors (features).
+          Use Supervised Machine Learning Approach to predict stock prices.
           Employ the use of pipeline and GridSearch to select the best model
           Use Final Model to Predict Stock Returns.
-          SHow plots of stock Return
+          Show plots of stock Return
           Write Deployable script.
 
 
